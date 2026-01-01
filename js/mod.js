@@ -40,7 +40,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(0.5)
 	return gain
 }
 
@@ -54,7 +54,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("1"))
+	return player.J.points.gte(new Decimal("10"))
 }
 
 
