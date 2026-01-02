@@ -32,5 +32,14 @@ addLayer("J", {
             description: "Double Ice Crystal gain.",
             cost: new Decimal(2),
         },
+        12: {
+            title: "02",
+            description: "Boost gain.",
+            cost: new Decimal(10),
+            effect() {
+                return player.J.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
     },
 })
