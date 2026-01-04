@@ -23,6 +23,8 @@ let changelog = `<h1>Changelog:</h1><br>
 		- 2 Upgrades
 	<br><h3>v1.3</h3><br>
 		- A lot added
+	<br><h3>v1.4</h3><br>
+		- 8 Upgrades
 `
 let winText = `Come back tomorrow!`
 
@@ -46,6 +48,7 @@ function getPointGen() {
 
 	let gain = new Decimal(0.5)
 	if (hasUpgrade('J', 12)) gain = gain.times(upgradeEffect('J', 12))
+	if (hasUpgrade('J', 14)) gain = gain.times(upgradeEffect('J', 14))
 	if (hasUpgrade('SY', 11)) gain = gain.times(upgradeEffect('SY', 11))
 	if (hasUpgrade('SY', 12)) gain = gain.times(upgradeEffect('SY', 12))
 	return gain

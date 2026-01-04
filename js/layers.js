@@ -48,6 +48,15 @@ addLayer("J", {
             description: "Unlock Synergies.",
             cost: new Decimal(25),
         },
+        14: {
+            title: "Clockwork II",
+            description: "Boost time speed",
+            cost: new Decimal(625),
+            effect() {
+                return player.J.points.add(1).pow(0.75)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
     },
 })
 addLayer("SY", {
@@ -64,7 +73,7 @@ addLayer("SY", {
     baseResource: "Time", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.6, // Prestige currency exponent
+    exponent: 0.2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -76,7 +85,7 @@ addLayer("SY", {
     hotkeys: [
         {key: "g", description: "G: Reset for Gears", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
+    layerShown(){return hasUpgrade('J', 11)},
     upgrades: {
         11: {
             title: "Time to Time",
