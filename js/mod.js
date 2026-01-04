@@ -19,8 +19,10 @@ let VERSION = {
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1.1</h3><br>
 		- Added ICs, 1 Upg
-	<h3>v1.2</h3><br>
+	<br><h3>v1.2</h3><br>
 		- 2 Upgrades
+	<br><h3>v1.3</h3><br>
+		- A lot added
 `
 let winText = `Come back tomorrow!`
 
@@ -44,6 +46,8 @@ function getPointGen() {
 
 	let gain = new Decimal(0.5)
 	if (hasUpgrade('J', 12)) gain = gain.times(upgradeEffect('J', 12))
+	if (hasUpgrade('SY', 11)) gain = gain.times(upgradeEffect('SY', 11))
+	if (hasUpgrade('SY', 12)) gain = gain.times(upgradeEffect('SY', 12))
 	return gain
 }
 
@@ -57,7 +61,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.J.points.gte(new Decimal("50"))
+	return player.J.points.gte(new Decimal("120"))
 }
 
 
