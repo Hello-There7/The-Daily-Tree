@@ -29,17 +29,17 @@ addLayer("A", {
         11: {
             title: "+1",
             description: "+1 Numbers/sec",
-            cost: new Decimal(2),
+            cost: new Decimal(1),
         },
         12: {
             title: "+2",
             description: "+2 Numbers/sec",
-            cost: new Decimal(3),
+            cost: new Decimal(2),
         },
         13: {
             title: "+3",
             description: "+3 Numbers/sec",
-            cost: new Decimal(5),
+            cost: new Decimal(3),
         },
     },
 })

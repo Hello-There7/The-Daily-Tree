@@ -1,12 +1,12 @@
 let modInfo = {
 	name: "The Math Tree",
 	author: "Hello-There-7",
-	pointsName: "Time",
+	pointsName: "Numbers",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
+	initialStartPoints: new Decimal (1), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
