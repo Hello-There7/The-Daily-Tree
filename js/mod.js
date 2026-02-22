@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Daily Tree",
+	name: "The Math Tree",
 	author: "Hello-There-7",
 	pointsName: "Time",
 	modFiles: ["layers.js", "tree.js"],
@@ -12,19 +12,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "PreGame",
+	num: "1.0",
+	name: "++",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1.1</h3><br>
-		- Added ICs, 1 Upg
-	<br><h3>v1.2</h3><br>
-		- 2 Upgrades
-	<br><h3>v1.3</h3><br>
-		- A lot added
-	<br><h3>v1.4</h3><br>
-		- 8 Upgrades
+	<h3>v1.0</h3><br>
+		- Added ADDITION
 `
 let winText = `Come back tomorrow!`
 
@@ -46,15 +40,10 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(0.5)
-	if (hasUpgrade('J', 12)) gain = gain.times(upgradeEffect('J', 12))
-	if (hasUpgrade('J', 14)) gain = gain.times(upgradeEffect('J', 14))
-	if (hasUpgrade('J', 16)) gain = gain.times(upgradeEffect('J', 16))
-	if (hasUpgrade('J', 17)) gain = gain.times(5)
-	if (hasUpgrade('J', 26)) gain = gain.times(10)
-	if (hasUpgrade('J', 27)) gain = gain.times(0.0001)
-	if (hasUpgrade('SY', 11)) gain = gain.times(upgradeEffect('SY', 11))
-	if (hasUpgrade('SY', 12)) gain = gain.times(upgradeEffect('SY', 12))
+	let gain = new Decimal(0)
+	if (hasUpgrade('A', 11)) gain = gain.add(1)
+	if (hasUpgrade('A', 12)) gain = gain.add(2)
+	if (hasUpgrade('A', 13)) gain = gain.add(3)
 	return gain
 }
 
