@@ -1,13 +1,13 @@
 let modInfo = {
-	name: "The Math Tree",
+	name: "The ChemisTree",
 	author: "Hello-There-7",
-	pointsName: "Neutrons",
+	pointsName: "Electrons",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	initialStartPoints: new Decimal (1), // Used for hard resets and new players
+	offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
@@ -20,7 +20,7 @@ let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1.0</h3><br>
 		- Added Hydrogen
 `
-let winText = `Come back soon!`
+let winText = `You've Mastered the Elements for now...`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -40,10 +40,10 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(0.1)
-	if (hasUpgrade('A', 11)) gain = gain.add(1)
-	if (hasUpgrade('A', 12)) gain = gain.add(2)
-	if (hasUpgrade('A', 13)) gain = gain.add(3)
+	let gain = new Decimal(1)
+	if (hasUpgrade('H', 11)) gain = gain.times(2)
+	if (hasUpgrade('H', 12)) gain = gain.times(upgradeEffect('H', 12))
+	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H', 13))
 	return gain
 }
 
@@ -57,7 +57,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.J.points.gte(new Decimal("120"))
+	return player.H.points.gte(new Decimal("4"))
 }
 
 
