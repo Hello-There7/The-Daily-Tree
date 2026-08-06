@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The Math Tree",
 	author: "Hello-There-7",
-	pointsName: "Numbers",
+	pointsName: "Neutrons",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -13,14 +13,14 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "1.0",
-	name: "++",
+	name: "Hydrogen",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1.0</h3><br>
-		- Added ADDITION
+		- Added Hydrogen
 `
-let winText = `Come back tomorrow!`
+let winText = `Come back soon!`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)

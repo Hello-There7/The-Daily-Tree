@@ -7,9 +7,9 @@ addLayer("H", {
 		points: new Decimal(0),
     }},
     color: "rgb(226, 255, 253)",
-    requires: new Decimal(1), // Can be a function that takes requirement increases into account
-    resource: "Hydroen", // Name of prestige currency
-    baseResource: "Numbers", // Name of resource prestige is based on
+    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    resource: "Hydrogen", // Name of prestige currency
+    baseResource: "Neutrons", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
