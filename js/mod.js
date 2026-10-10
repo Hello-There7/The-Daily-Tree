@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ChemisTree",
+	name: "The Miscelanious Tree",
 	author: "Hello-There-7",
-	pointsName: "Electrons",
+	pointsName: "Points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -41,9 +41,20 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade('H', 11)) gain = gain.times(2)
-	if (hasUpgrade('H', 12)) gain = gain.times(upgradeEffect('H', 12))
-	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H', 13))
+	if (hasUpgrade('N', 12)) gain = gain.times(2)
+	if (hasUpgrade('N', 13)) gain = gain.times(3)
+	if (hasUpgrade('N', 15)) gain = gain.times(5)
+	if (hasUpgrade('N', 17)) gain = gain.times(7)
+	if (hasUpgrade('N', 21)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 22)) gain = gain.times(11)
+	if (hasUpgrade('N', 23)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 24)) gain = gain.times(13)
+	if (hasUpgrade('N', 25)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 26)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 27)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 28)) gain = gain.times(17)
+	if (hasUpgrade('N', 29)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 30)) gain = gain.times(19)
 	return gain
 }
 
