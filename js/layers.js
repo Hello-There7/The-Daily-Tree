@@ -7,12 +7,12 @@ addLayer("N", {
 		points: new Decimal(0),
     }},
     color: "rgb(68, 127, 238)",
-    requires: new Decimal(1), // Can be a function that takes requirement increases into account
+    requires: new Decimal(15), // Can be a function that takes requirement increases into account
     resource: "Numerals", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
