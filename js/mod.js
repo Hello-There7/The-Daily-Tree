@@ -6,21 +6,21 @@ let modInfo = {
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (1), // Used for hard resets and new players
-	offlineLimit: 0,  // In hours
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
+	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
 	num: "1.0",
-	name: "Hydrogen",
+	name: "Numbers Pt. I",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1.0</h3><br>
-		- Added Hydrogen
+		- Added Numbers 1-19
 `
-let winText = `You've Mastered the Elements for now...`
+let winText = `Good job!`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -41,20 +41,20 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade('N', 12)); gain = gain.times(2)
-	if (hasUpgrade('N', 13)); gain = gain.times(3)
-	if (hasUpgrade('N', 15)); gain = gain.times(5)
-	if (hasUpgrade('N', 17)); gain = gain.times(7)
-	if (hasUpgrade('N', 21)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 22)); gain = gain.times(11)
-	if (hasUpgrade('N', 23)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 24)); gain = gain.times(13)
-	if (hasUpgrade('N', 25)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 26)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 27)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 28)); gain = gain.times(17)
-	if (hasUpgrade('N', 29)); gain = gain.times(1.5)
-	if (hasUpgrade('N', 30)); gain = gain.times(19)
+	if (hasUpgrade('N', 12)) gain = gain.times(2)
+	if (hasUpgrade('N', 13)) gain = gain.times(3)
+	if (hasUpgrade('N', 15)) gain = gain.times(5)
+	if (hasUpgrade('N', 17)) gain = gain.times(7)
+	if (hasUpgrade('N', 21)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 22)) gain = gain.times(11)
+	if (hasUpgrade('N', 23)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 24)) gain = gain.times(13)
+	if (hasUpgrade('N', 25)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 26)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 27)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 28)) gain = gain.times(17)
+	if (hasUpgrade('N', 29)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 30)) gain = gain.times(19)
 	return gain
 }
 
@@ -68,7 +68,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.H.points.gte(new Decimal("4"))
+	return hasUpgrade('N', 31)
 }
 
 
