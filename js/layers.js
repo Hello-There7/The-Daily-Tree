@@ -110,7 +110,7 @@ addLayer("N", {
             title: "Fourteen",
             description: "2 x 7. Unlock Sixteen! x1.5 Points",
             cost: new Decimal(377),
-            unlocked(){return hasUpgrade('N', 20)},
+            unlocked(){return hasUpgrade('N', 21)},
         },
         26: {
             title: "Fifteen",
