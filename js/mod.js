@@ -12,13 +12,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "Numbers Pt. I",
+	num: "1.0.2",
+	name: "Numbers Pt. III",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1.0</h3><br>
-		- Added Numbers 1-19
+	<h3>v1.0.0</h3><br>
+		- Added Numbers 1-19<br>
+		<h3>v1.0.1</h3><br>
+		- Added Numbers 20-53<br>
+		<h3>v1.0.2</h3><br>
+		- Added Numbers 54-80
 `
 let winText = `Good job!`
 
@@ -88,6 +92,32 @@ function getPointGen() {
 	if (hasUpgrade('N', 66)) gain = gain.times(1.5)
 	if (hasUpgrade('N', 67)) gain = gain.times(1.5)
 	if (hasUpgrade('N', 68)) gain = gain.times(53)
+	if (hasUpgrade('N', 71)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 72)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 73)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 74)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 75)) gain = gain.times(59)
+	if (hasUpgrade('N', 76)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 77)) gain = gain.times(61)
+	if (hasUpgrade('N', 78)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 79)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 81)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 82)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 83)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 84)) gain = gain.times(67)
+	if (hasUpgrade('N', 85)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 86)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 87)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 88)) gain = gain.times(71)
+	if (hasUpgrade('N', 89)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 91)) gain = gain.times(73)
+	if (hasUpgrade('N', 92)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 93)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 94)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 95)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 96)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 97)) gain = gain.times(79)
+	if (hasUpgrade('N', 98)) gain = gain.times(1.5)
 	return gain
 }
 
@@ -101,7 +131,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasUpgrade('N', 68)
+	return hasUpgrade('N', 98)
 }
 
 
