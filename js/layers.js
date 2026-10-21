@@ -569,11 +569,12 @@ addLayer("T", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+        best: new Decimal(0),
     }},
     color: "rgb(127, 198, 226)",
     requires: new Decimal(10000000000000000000), // Can be a function that takes requirement increases into account
     resource: "Tiers", // Name of prestige currency
-    baseResource: "Points", // Name of resource prestige is based on
+    baseResource: "Numerals", // Name of resource prestige is based on
     baseAmount() {return player.N.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -585,7 +586,7 @@ addLayer("T", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return hasUpgrade(N,99) || player[this.layer].best.gte(1)},
+    layerShown(){ return hasUpgrade('N',99) || player[this.layer].best.gte(1) },
     milestones: {
         0: {
             requirementDescription: "First Tier",
