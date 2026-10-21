@@ -575,8 +575,8 @@ addLayer("T", {
     resource: "Tiers", // Name of prestige currency
     baseResource: "Numerals", // Name of resource prestige is based on
     baseAmount() {return player.N.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -585,7 +585,9 @@ addLayer("T", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){ return hasUpgrade('N',99) || player[this.layer].best.gte(1) },
+    layerShown() { 
+        return hasUpgrade('N',99) || player[this.layer].best.gte(1) 
+    },
     milestones: {
         0: {
             requirementDescription: "First Tier",
