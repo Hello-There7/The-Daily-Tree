@@ -1,11 +1,11 @@
-addLayer("Ach", {
+addLayer("A", {
     name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "rgb(255, 232, 29)",
+    color: "#ffe600",
     resource: "Achievement Power", // Name of prestige currency
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
@@ -51,7 +51,7 @@ addLayer("N", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "rgb(195, 127, 226)",
+    color: "#c64feb",
     requires: new Decimal(15), // Can be a function that takes requirement increases into account
     resource: "Numerals", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
@@ -568,9 +568,8 @@ addLayer("T", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
-        best: new Decimal(0),
     }},
-    color: "rgb(127, 198, 226)",
+    color: "#34bfff",
     requires: new Decimal(1000000000000000000), // Can be a function that takes requirement increases into account
     resource: "Tiers", // Name of prestige currency
     baseResource: "Numerals", // Name of resource prestige is based on
