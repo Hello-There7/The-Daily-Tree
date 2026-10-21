@@ -6,7 +6,7 @@ addLayer("Ach", {
 		points: new Decimal(0),
     }},
     color: "rgb(255, 232, 29)",
-    resource: "Acheivement Power", // Name of prestige currency
+    resource: "Achievement Power", // Name of prestige currency
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     achievementPopups: true,
@@ -571,7 +571,7 @@ addLayer("T", {
         best: new Decimal(0),
     }},
     color: "rgb(127, 198, 226)",
-    requires: new Decimal(10000000000000000000), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1000000000000000000), // Can be a function that takes requirement increases into account
     resource: "Tiers", // Name of prestige currency
     baseResource: "Numerals", // Name of resource prestige is based on
     baseAmount() {return player.N.points}, // Get the current amount of baseResource
