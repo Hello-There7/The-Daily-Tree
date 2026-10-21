@@ -1,3 +1,49 @@
+addLayer("Ach", {
+    name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    symbol: "☻", // This appears on the layer's node. Default is the id with the first letter capitalized
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "rgb(255, 232, 29)",
+    resource: "Acheivement Power", // Name of prestige currency
+    row: side, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true},
+    achievementPopups: true,
+    achievements: {
+        11: {
+            name: "Is this just Fibonacci?",
+            done() {return hasUpgrade(N,21)},
+            tooltip: "Get Upgrade 10",
+        },
+        12: {
+            name: "Score!",
+            done() {return hasUpgrade(N,32)},
+            tooltip: "Get Upgrade 20",
+        },
+        13: {
+            name: "32-Bit",
+            done() {return hasUpgrade(N,45)},
+            tooltip: "Get Upgrade 32",
+        },
+        14: {
+            name: "Deck of Cards",
+            done() {return hasUpgrade(N,67)},
+            tooltip: "Get Upgrade 52",
+        },
+        15: {
+            name: "LXXV",
+            done() {return hasUpgrade(N,93)},
+            tooltip: "Get Upgrade 75",
+        },
+        16: {
+            name: "Layer N Finished!",
+            done() {return hasUpgrade(N,99)},
+            tooltip: "Get Upgrade 81",
+        },
+    },
+}),
 addLayer("N", {
     name: "Numbers", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "N", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -492,7 +538,7 @@ addLayer("N", {
         },
         96: {
             title: "Seventy-eight",
-            description: "2 x 3 x 13.",
+            description: "2 x 3 x 13. Unlock Eighty-one!",
             cost: new Decimal(750250000000000000),
             unlocked(){return hasUpgrade('N', 93)},
         },
@@ -507,6 +553,45 @@ addLayer("N", {
             description: "2 x 2 x 2 x 2 x 5.",
             cost: new Decimal(1964180000000000000),
             unlocked(){return hasUpgrade('N', 95)},
+        },
+        99: {
+            title: "Eighty-one",
+            description: "3 x 3 x 3 x 3. Final Upgrade!",
+            cost: new Decimal(5000000000000000000),
+            unlocked(){return hasUpgrade('N', 96)},
+        },
+    },
+})
+addLayer("T", {
+    name: "Tiers", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "T", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: hasUpgrade(N,99) || player[this.layer].best.gte(1),
+		points: new Decimal(0),
+    }},
+    color: "rgb(127, 198, 226)",
+    requires: new Decimal(10000000000000000000), // Can be a function that takes requirement increases into account
+    resource: "Tiers", // Name of prestige currency
+    baseResource: "Points", // Name of resource prestige is based on
+    baseAmount() {return player.N.points}, // Get the current amount of baseResource
+    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.5, // Prestige currency exponent
+    base: 10,
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true},
+    milestones: {
+        0: {
+            requirementDescription: "First Tier",
+            effectDescription: "x15 Points!",
+            done() {return player[this.layer].best.gte(1)},
         },
     },
 })

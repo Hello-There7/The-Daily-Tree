@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0.2",
-	name: "Numbers Pt. III",
+	num: "1.1.0",
+	name: "Tiers",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,7 +22,9 @@ let changelog = `<h1>Changelog:</h1><br>
 		<h3>v1.0.1</h3><br>
 		- Added Numbers 20-53<br>
 		<h3>v1.0.2</h3><br>
-		- Added Numbers 54-80
+		- Added Numbers 54-80<br>
+		<h3>v1.1.0</h3><br>
+		- Added Acheivements and Tier 1
 `
 let winText = `Good job!`
 
@@ -118,6 +120,8 @@ function getPointGen() {
 	if (hasUpgrade('N', 96)) gain = gain.times(1.5)
 	if (hasUpgrade('N', 97)) gain = gain.times(79)
 	if (hasUpgrade('N', 98)) gain = gain.times(1.5)
+	if (hasUpgrade('N', 99)) gain = gain.times(1.5)
+	if (hasMilestone('T', 0)) gain = gain.times(15)
 	return gain
 }
 
