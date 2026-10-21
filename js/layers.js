@@ -1,7 +1,7 @@
 addLayer("Ach", {
     name: "Achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
-    symbol: "☻", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "A", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -567,7 +567,7 @@ addLayer("T", {
     symbol: "T", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
-        unlocked: hasUpgrade(N,99) || player[this.layer].best.gte(1),
+        unlocked: false,
 		points: new Decimal(0),
     }},
     color: "rgb(127, 198, 226)",
@@ -577,7 +577,6 @@ addLayer("T", {
     baseAmount() {return player.N.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
-    base: 10,
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -586,7 +585,7 @@ addLayer("T", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){return hasUpgrade(N,99) || player[this.layer].best.gte(1)},
     milestones: {
         0: {
             requirementDescription: "First Tier",
